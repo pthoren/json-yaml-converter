@@ -7,9 +7,9 @@ A small library to convert json files to yaml files and vice versa. Exports two 
 
 ### Motivation
 
-Several workflow and flow-based programming tools store user programs as json. Unfortunately, these programs are painful to code review in their native format because json does not support multi-line strings. Source code is much easier to read when stored as yaml:
+Several workflow and flow-based programming tools store user programs as json. Unfortunately, these programs are painful to code review in their native format because json does not support multi-line strings. For example:
 
-Before:
+Json:
 
 ```
           "expressions": {
@@ -18,7 +18,7 @@ Before:
           }
 ```
 
-After:
+Source code is much easier to read when stored as yaml:
 
 ```
         expressions:
@@ -31,9 +31,7 @@ After:
             return `${hello} ${world}`;
 ```
 
-Diffs are similarly easier to read.
-
-Before:
+Diffs are similarly easier to read. Before:
 
 ```
 diff --git a/__tests__/input.json b/__tests__/input.json
