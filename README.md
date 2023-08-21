@@ -31,7 +31,7 @@ Source code is much easier to read when stored as yaml:
             return `${hello} ${world}`;
 ```
 
-Diffs are similarly easier to read. Before:
+Diffs are easier to read too. Compare:
 
 ```
 diff --git a/__tests__/input.json b/__tests__/input.json
