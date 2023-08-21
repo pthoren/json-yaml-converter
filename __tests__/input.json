@@ -1,0 +1,190 @@
+{
+  "$id": "1",
+  "definitionId": "7144073c803c49e399ac209677b72cdb",
+  "versionId": "002e2863bf2d42a18d124fb49ef81af3",
+  "displayName": "Hello world",
+  "version": 2,
+  "variables": {
+    "$id": "2",
+    "data": {}
+  },
+  "customAttributes": {
+    "$id": "3",
+    "data": {}
+  },
+  "isSingleton": false,
+  "persistenceBehavior": "WorkflowBurst",
+  "deleteCompletedInstances": false,
+  "isPublished": true,
+  "isLatest": true,
+  "createdAt": "2023-08-21T03:57:28.574662Z",
+  "activities": [
+    {
+      "$id": "4",
+      "activityId": "1140317d-f8ff-4ad4-95bb-8de4246882e8",
+      "type": "HttpEndpoint",
+      "displayName": "HTTP Endpoint",
+      "persistWorkflow": false,
+      "loadWorkflowContext": false,
+      "saveWorkflowContext": false,
+      "properties": [
+        {
+          "$id": "5",
+          "name": "Path",
+          "expressions": {
+            "$id": "6",
+            "Literal": "/hello-world"
+          }
+        },
+        {
+          "$id": "7",
+          "name": "Methods",
+          "expressions": {
+            "$id": "8",
+            "Json": "[\"GET\"]"
+          }
+        },
+        {
+          "$id": "9",
+          "name": "ReadContent",
+          "expressions": {
+            "$id": "10"
+          }
+        },
+        {
+          "$id": "11",
+          "name": "TargetType",
+          "expressions": {
+            "$id": "12"
+          }
+        },
+        {
+          "$id": "13",
+          "name": "Schema",
+          "syntax": "Literal",
+          "expressions": {
+            "$id": "14",
+            "Literal": ""
+          }
+        },
+        {
+          "$id": "15",
+          "name": "Authorize",
+          "expressions": {
+            "$id": "16"
+          }
+        },
+        {
+          "$id": "17",
+          "name": "Policy",
+          "expressions": {
+            "$id": "18"
+          }
+        }
+      ],
+      "propertyStorageProviders": {
+        "$id": "19"
+      }
+    },
+    {
+      "$id": "20",
+      "activityId": "f392f151-8521-42f3-ac58-6595bb09b2e8",
+      "type": "SetVariable",
+      "displayName": "Set Variable",
+      "persistWorkflow": false,
+      "loadWorkflowContext": false,
+      "saveWorkflowContext": false,
+      "properties": [
+        {
+          "$id": "21",
+          "name": "VariableName",
+          "expressions": {
+            "$id": "22",
+            "Literal": "res"
+          }
+        },
+        {
+          "$id": "23",
+          "name": "Value",
+          "syntax": "JavaScript",
+          "expressions": {
+            "$id": "24",
+            "JavaScript": "const hello = \"hello\";\n\nconst world = \"world\";\n\nreturn `${hello} ${world}`;"
+          }
+        }
+      ],
+      "propertyStorageProviders": {
+        "$id": "25"
+      }
+    },
+    {
+      "$id": "26",
+      "activityId": "1126bfee-dddf-4033-8613-ec8b57d29be5",
+      "type": "WriteHttpResponse",
+      "displayName": "HTTP Response",
+      "persistWorkflow": false,
+      "loadWorkflowContext": false,
+      "saveWorkflowContext": false,
+      "properties": [
+        {
+          "$id": "27",
+          "name": "Content",
+          "syntax": "JavaScript",
+          "expressions": {
+            "$id": "28",
+            "JavaScript": "return getVariable(\"res\");"
+          }
+        },
+        {
+          "$id": "29",
+          "name": "ContentType",
+          "expressions": {
+            "$id": "30",
+            "Literal": "text/plain"
+          }
+        },
+        {
+          "$id": "31",
+          "name": "StatusCode",
+          "expressions": {
+            "$id": "32",
+            "Literal": "OK"
+          }
+        },
+        {
+          "$id": "33",
+          "name": "CharSet",
+          "expressions": {
+            "$id": "34",
+            "Literal": "utf-8"
+          }
+        },
+        {
+          "$id": "35",
+          "name": "ResponseHeaders",
+          "expressions": {
+            "$id": "36"
+          }
+        }
+      ],
+      "propertyStorageProviders": {
+        "$id": "37"
+      }
+    }
+  ],
+  "connections": [
+    {
+      "$id": "38",
+      "sourceActivityId": "1140317d-f8ff-4ad4-95bb-8de4246882e8",
+      "targetActivityId": "f392f151-8521-42f3-ac58-6595bb09b2e8",
+      "outcome": "Done"
+    },
+    {
+      "$id": "39",
+      "sourceActivityId": "f392f151-8521-42f3-ac58-6595bb09b2e8",
+      "targetActivityId": "1126bfee-dddf-4033-8613-ec8b57d29be5",
+      "outcome": "Done"
+    }
+  ],
+  "id": "002e2863bf2d42a18d124fb49ef81af3"
+}
