@@ -2,7 +2,7 @@ import * as fs from 'fs';
 import * as yaml from 'js-yaml';
 
 /**
- * Converts a json file on a yaml file.
+ * Converts a json file to a yaml file.
  * String values containing newlines (\n) will be converted to multi-line strings.
  *
  * @param inputFilepath input path to the json file
